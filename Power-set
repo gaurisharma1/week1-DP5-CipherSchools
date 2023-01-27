@@ -1,0 +1,15 @@
+vector<vector<int>> subsets(vector<int>& nums) {
+        vector<vector<int>> ans;
+        help(0, {}, ans, nums);
+        return ans;
+    }
+    
+    void help(int idx, vector<int> cur, vector<vector<int>>& ans, vector<int>& nums){
+        if(idx == nums.size()){ 
+            ans.push_back(cur); 
+            return;
+        }
+        help(idx + 1, cur, ans, nums);
+        cur.push_back(nums[idx]);
+        help(idx + 1, cur, ans, nums);
+    }
